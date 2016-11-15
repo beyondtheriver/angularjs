@@ -8,9 +8,38 @@
          text-decoration: line-through;
          color: #ccc;
       }
+      .header{
+         display: flex;
+         justify-content: center;
+         background-color: #1eacaa;
+         padding: 1.5em 1em;
+      }
+      .header img{
+         max-height: 30px;
+         max-width: 130px;
+      }
+      .mainpic{
+         background-image: url("images/coffeeshop.jpg");
+         height: 300px;
+         max-width: 100%;
+         background-size: cover;
+         border-top: solid #d6bfab;
+         border-bottom: solid #d6bfab;
+
+      }
+      .mainpic img{
+         max-width: 100%;
+
+      }
    </style>
 </head>
 <body>
+   <header class="header">
+      <img src="BRO_logo.svg">
+   </header>
+   <div class="mainpic">
+<!--       <img src="images/coffeeshop.jpg">
+ -->   </div>
    <div ng-controller="todocontroller">
       <form name="frm" ng-submit="addtodo()">
          <input type="text" name="newtodo" ng-model="newtodo" required />
