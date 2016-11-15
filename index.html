@@ -3,35 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <title>TO DO</title>
-   <style>
-      .done{
-         text-decoration: line-through;
-         color: #ccc;
-      }
-      .header{
-         display: flex;
-         justify-content: center;
-         background-color: #1eacaa;
-         padding: 1.5em 1em;
-      }
-      .header img{
-         max-height: 30px;
-         max-width: 130px;
-      }
-      .mainpic{
-         background-image: url("images/coffeeshop.jpg");
-         height: 300px;
-         max-width: 100%;
-         background-size: cover;
-         border-top: solid #d6bfab;
-         border-bottom: solid #d6bfab;
-
-      }
-      .mainpic img{
-         max-width: 100%;
-
-      }
-   </style>
+   <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
    <header class="header">
@@ -40,19 +12,41 @@
    <div class="mainpic">
 <!--       <img src="images/coffeeshop.jpg">
  -->   </div>
-   <div ng-controller="todocontroller">
-      <form name="frm" ng-submit="addtodo()">
-         <input type="text" name="newtodo" ng-model="newtodo" required />
-         <button ng-disabled="frm.$invalid">Go</button>
-      </form>
-      <button ng-click="clearCompleted()">Clear Completed</button>
-      <ul>
-         <li ng-repeat="todo in todos">
-            <input type="checkbox" ng-model="todo.done" />
-            <span ng-class="{'done':todo.done}">{{todo.title}}</span>
-         </li>
-      </ul>
+   <div ng-controller="todocontroller" id="container">
+      <div class="currentcontainer">
+         <div id="currentlist">
+            <ol>
+               <li ng-repeat="todo in todos">
+                  <input type="checkbox" ng-model="todo.done" />
+                  <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+               </li>
+            </ol>
+         </div>
+         <form name="frm" ng-submit="addtodo()">
+               <input type="text" name="newtodo" ng-model="newtodo" required value="Click here to add new item"/>
+      <!--          <button ng-disabled="frm.$invalid">Go</button>
+       -->
+               <input type="image" src="images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid"/>
+            </form>
+            <!-- function to clear all
+            <button ng-click="clearCompleted()">Clear Completed</button> -->
+      </div>
+      <div class="listscontainer">
+         <div id="lists">
+            <ol>
+               <li ng-repeat="list in lists">
+                  <input type="checkbox" ng-model="list.done" />
+                  <span ng-class="{'done':list.done}">{{list.title}}</span>
+               </li>
+            </ol>
+         </div>
+         <form name="frm" ng-submit="addList()">
+            <input type="text" name="newList" ng-model="newlist" required value="click here to add new list" />
+            <input type="image" src="images/icon_add.svg" name="newList" ng-disabled="frm.$invalid"/>
+         </form>
+      </div>
    </div>
+
 
 <script src="angular.min.js"></script>
 <script>
@@ -60,8 +54,15 @@
    angular.module('ToDo', []).
    controller('todocontroller', ['$scope', function($scope){
       $scope.todos = [
-         {'title':'Build a todo app','done':false}
+         {'title':'first grocery item','done':false}
       ];
+      $scope.lists = [
+         {'title':'first list','done':false}
+      ];
+      $scope.addList = function(){
+         $scope.lists.push({'title':$scope.newlist, 'done':false});
+         $scope.newlist = '';
+      };
       $scope.addtodo = function(){
          $scope.todos.push({'title':$scope.newtodo, 'done':false});
          $scope.newtodo = '';
@@ -73,6 +74,9 @@
          });
 
       };
+      // $scope.deletetodo = function(){
+      //    $scope.todos.pull({'title':$scope.newtodo, 'done':false})
+      // };
    }]);
 
 </script>

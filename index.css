@@ -1,0 +1,50 @@
+body{
+   font-family: sans-serif;
+   color: #808080;
+}
+input[type=text] {
+    border: none;
+}
+.done{
+   text-decoration: line-through;
+   color: #ccc;
+}
+.header{
+   display: flex;
+   justify-content: center;
+   background-color: #1eacaa;
+   padding: 1em 1em;
+}
+.header img{
+   max-height: 25px;
+   max-width: 130px;
+}
+.mainpic{
+   background-image: url("images/coffeeshop.jpg");
+   height: 300px;
+   max-width: 100%;
+   background-size: cover;
+   border-top: solid #d6bfab;
+   border-bottom: solid #d6bfab;
+
+}
+.mainpic img{
+   max-width: 100%;
+
+}
+#currentlist{
+   margin-left: 10%;
+   margin-top: 10%;
+   width: 300px;
+   border-top: solid #d6bfab;
+   border-bottom: solid #d6bfab;
+}
+.currentcontainer{
+}
+#lists{
+   border-top: solid #d6bfab;
+   border-bottom: solid #d6bfab;
+   margin-left: 10%;
+   margin-top: 10%;
+   width: 300px;
+}
