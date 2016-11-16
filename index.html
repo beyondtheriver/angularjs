@@ -10,38 +10,41 @@
       <img src="BRO_logo.svg">
    </header>
    <div class="mainpic">
-<!--       <img src="images/coffeeshop.jpg">
- -->   </div>
-   <div ng-controller="todocontroller" id="container">
+      <!-- <img src="images/coffeeshop.jpg"> -->
+   </div>
+   <div ng-controller="todoCtrl" id="container">
       <div class="currentcontainer">
+         <!-- needs to change with the name of list -->
+         <h1>{{current_lists[0].title}}</h1>
          <div id="currentlist">
             <ol>
-               <li ng-repeat="todo in todos">
-                  <input type="checkbox" ng-model="todo.done" />
-                  <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+               <li ng-repeat="current_list in current_lists">
+                  <span ng-class="{'done':current_list.done}">{{current_list.todo_item}}</span>
+                  <input type="checkbox" ng-model="current_list.done" />
+                  <input type="image" src="images/icon_close.svg" name="closeitem" ng-submit="deletetodo()"/>
                </li>
             </ol>
          </div>
-         <form name="frm" ng-submit="addtodo()">
-               <input type="text" name="newtodo" ng-model="newtodo" required value="Click here to add new item"/>
-      <!--          <button ng-disabled="frm.$invalid">Go</button>
-       -->
-               <input type="image" src="images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid"/>
-            </form>
+         <form name="frm" ng-submit="addItem()">
+            <input type="text" name="newtodo" ng-model="newtodo" ng-click="newtodo=null" required />
+            <input type="image" src="images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid"/>
+         </form>
             <!-- function to clear all
             <button ng-click="clearCompleted()">Clear Completed</button> -->
       </div>
       <div class="listscontainer">
+         <h1>Lists</h1>
          <div id="lists">
             <ol>
-               <li ng-repeat="list in lists">
-                  <input type="checkbox" ng-model="list.done" />
-                  <span ng-class="{'done':list.done}">{{list.title}}</span>
+               <li ng-repeat="master_list in master_lists">
+                  <span ng-class="{'done':master_list.done}">{{master_list.title}}</span>
+                  <input type="checkbox" ng-model="master_list.done" />
+                  <input type="image" src="images/icon_close.svg" name="closeitem" ng-submit="deletetodo()"/>
                </li>
             </ol>
          </div>
          <form name="frm" ng-submit="addList()">
-            <input type="text" name="newList" ng-model="newlist" required value="click here to add new list" />
+            <input type="text" name="newList" ng-model="newlist" ng-click="newlist=null" required />
             <input type="image" src="images/icon_add.svg" name="newList" ng-disabled="frm.$invalid"/>
          </form>
       </div>
@@ -49,36 +52,7 @@
 
 
 <script src="angular.min.js"></script>
-<script>
+<script src="practice.js"></script>
 
-   angular.module('ToDo', []).
-   controller('todocontroller', ['$scope', function($scope){
-      $scope.todos = [
-         {'title':'first grocery item','done':false}
-      ];
-      $scope.lists = [
-         {'title':'first list','done':false}
-      ];
-      $scope.addList = function(){
-         $scope.lists.push({'title':$scope.newlist, 'done':false});
-         $scope.newlist = '';
-      };
-      $scope.addtodo = function(){
-         $scope.todos.push({'title':$scope.newtodo, 'done':false});
-         $scope.newtodo = '';
-
-      };
-      $scope.clearCompleted = function(){
-         $scope.todos = $scope.todos.filter(function(item){
-            return !item.done;
-         });
-
-      };
-      // $scope.deletetodo = function(){
-      //    $scope.todos.pull({'title':$scope.newtodo, 'done':false})
-      // };
-   }]);
-
-</script>
 </body>
 </html>

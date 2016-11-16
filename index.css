@@ -4,6 +4,7 @@ body{
 }
 input[type=text] {
     border: none;
+    width: 90%;
 }
 .done{
    text-decoration: line-through;
@@ -32,19 +33,24 @@ input[type=text] {
    max-width: 100%;
 
 }
-#currentlist{
+.currentcontainer{
+   position: relative;
    margin-left: 10%;
    margin-top: 10%;
    width: 300px;
+}
+#currentlist{
    border-top: solid #d6bfab;
    border-bottom: solid #d6bfab;
 }
-.currentcontainer{
+.listscontainer{
+   position: absolute;
+   left: 55%;
+   top: 55%;
+   width: 300px;
 }
 #lists{
    border-top: solid #d6bfab;
    border-bottom: solid #d6bfab;
-   margin-left: 10%;
-   margin-top: 10%;
-   width: 300px;
 }
+
