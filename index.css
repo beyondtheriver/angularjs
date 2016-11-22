@@ -41,14 +41,14 @@ input[type=text] {
 }
 .currentcontainer{
    position: relative;
-   width: 300px;
+   width: 400px;
 }
 .currentlist{
    border-top: solid #d6bfab;
    border-bottom: solid #d6bfab;
 }
 .currentlist li{
-   margin-left: -15%;
+   margin-left: -11%;
 }
 .flexlist{
    display: flex;
@@ -56,14 +56,15 @@ input[type=text] {
    align-items: baseline;
 }
 .listscontainer{
-   width: 300px;
+   width: 400px;
 }
 .lists{
    border-top: solid 1px #d6bfab;
    border-bottom: solid 1px #d6bfab;
 }
 .lists li{
-   margin-left: -15%;
+   margin-left: -11%;
+   font-size: smaller;
 }
 .checked{
    /*display: none;*/
