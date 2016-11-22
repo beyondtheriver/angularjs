@@ -33,11 +33,9 @@ input[type=text] {
    background-size: cover;
    border-top: solid #d6bfab;
    border-bottom: solid #d6bfab;
-
 }
 .mainpic img{
    max-width: 100%;
-
 }
 .currentcontainer{
    position: relative;
@@ -71,6 +69,11 @@ input[type=text] {
    padding-bottom: 5px;
    font-size: smaller;
 }
-.checked{
-   /*display: none;*/
+.plussed{
+   padding-left: 12px;
+}
+@media only screen and (max-width: 750px) {
+   #container{
+      display: block;
+   }
 }

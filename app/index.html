@@ -45,7 +45,7 @@
          </div>
          <form name="frm" ng-submit="addItem()">
             <input type="text" name="newtodo" ng-model="newtodo" placeholder="Click here to add a new item." ng-click="newtodo=null" required />
-            <input type="image" src="../images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid"/>
+            <input type="image" src="../images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid" class="plussed"/>
          </form>
       </div>
       <div class="listscontainer">
@@ -76,7 +76,7 @@
          </div>
          <form name="frm" ng-submit="addList()">
             <input type="text" name="newList" ng-model="newlist" ng-click="newlist=null" required />
-            <input type="image" src="../images/icon_add.svg" name="newList" ng-disabled="frm.$invalid"/>
+            <input type="image" src="../images/icon_add.svg" name="newList" ng-disabled="frm.$invalid" class="plussed"/>
          </form>
       </div>
    </div>
