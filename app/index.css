@@ -26,7 +26,7 @@ input[type=text] {
    max-width: 130px;
 }
 .mainpic{
-   background-image: url("images/coffeeshop.jpg");
+   background-image: url("../images/coffeeshop.jpg");
    background-position: center;
    height: 300px;
    max-width: 100%;
