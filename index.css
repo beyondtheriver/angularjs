@@ -58,11 +58,11 @@ input[type=text] {
 .listscontainer{
    width: 300px;
 }
-#lists{
-   border-top: solid #d6bfab;
-   border-bottom: solid #d6bfab;
+.lists{
+   border-top: solid 1px #d6bfab;
+   border-bottom: solid 1px #d6bfab;
 }
-#lists li{
+.lists li{
    margin-left: -15%;
 }
 .checked{

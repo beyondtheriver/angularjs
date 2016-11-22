@@ -50,7 +50,7 @@
             <h1>Current Lists</h1>
             <p ng-click="readyToEditML = ! readyToEditML">edit</p>
          </div>
-         <div id="lists" ng-hide="readyToEditML">
+         <div class="lists" ng-hide="readyToEditML">
             <ol>
                <li ng-repeat="master_list in master_lists" class="flexlist">
                   <span ng-click="selectList(master_list)"ng-class="{'done':master_list.done}">{{$index + 1 + "." + " " + master_list.title}}</span>
@@ -60,7 +60,7 @@
                </li>
             </ol>
          </div>
-         <div class="currentlist" ng-show="readyToEditML">
+         <div class="lists" ng-show="readyToEditML">
             <ol>
                <li ng-repeat="master_list in master_lists" class="flexlist">
                   {{$index + 1 + "."}}
