@@ -1,10 +1,15 @@
 body{
    font-family: sans-serif;
    color: #808080;
+   margin:0;
 }
 input[type=text] {
     border: none;
     width: 90%;
+}
+#container{
+   display: flex;
+   justify-content: space-around;
 }
 .done{
    text-decoration: line-through;
@@ -22,6 +27,7 @@ input[type=text] {
 }
 .mainpic{
    background-image: url("images/coffeeshop.jpg");
+   background-position: center;
    height: 300px;
    max-width: 100%;
    background-size: cover;
@@ -35,22 +41,30 @@ input[type=text] {
 }
 .currentcontainer{
    position: relative;
-   margin-left: 10%;
-   margin-top: 10%;
    width: 300px;
 }
-#currentlist{
+.currentlist{
    border-top: solid #d6bfab;
    border-bottom: solid #d6bfab;
 }
+.currentlist li{
+   margin-left: -15%;
+}
+.flexlist{
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+}
 .listscontainer{
-   position: absolute;
-   left: 55%;
-   top: 55%;
    width: 300px;
 }
 #lists{
    border-top: solid #d6bfab;
    border-bottom: solid #d6bfab;
 }
-
+#lists li{
+   margin-left: -15%;
+}
+.checked{
+   /*display: none;*/
+}
