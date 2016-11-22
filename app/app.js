@@ -37,8 +37,4 @@ angular.module('ToDo', []).
       $scope.deleteToDo = function(index){
          $scope.current_list.todo_items.splice(index, 1);
       }
-      $scope.editItem = function(index, updatedItem){
-         $scope.readyToEdit = true;
-         $scope.current_list.todo_items[index] = updatedItem;
-      }
    }])

@@ -49,11 +49,15 @@ input[type=text] {
 }
 .currentlist li{
    margin-left: -11%;
+   padding-bottom: 10px;
 }
 .flexlist{
    display: flex;
    justify-content: space-between;
    align-items: baseline;
+}
+.underline{
+   border-bottom: solid 1px #d6bfab;
 }
 .listscontainer{
    width: 400px;
@@ -64,6 +68,7 @@ input[type=text] {
 }
 .lists li{
    margin-left: -11%;
+   padding-bottom: 5px;
    font-size: smaller;
 }
 .checked{

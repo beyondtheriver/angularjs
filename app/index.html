@@ -19,7 +19,10 @@
          <!-- needs to change with the name of list -->
          <div class="flexlist">
             <h1>{{current_list.title}}</h1>
-            <p ng-click="readyToEdit = ! readyToEdit">edit</p>
+            <div class="flexlist">
+               <p ng-click="readyToEdit = ! readyToEdit" ng-class="{'underline':readyToEdit}">edit</p>
+               <p ng-click="readyToEdit = ! readyToEdit" style="padding-left:10px">save</p>
+            </div>
          </div>
          <div class="currentlist" ng-hide="readyToEdit">
             <ol>
@@ -32,11 +35,11 @@
                </li>
             </ol>
          </div>
-         <div class="currentlist" ng-show="readyToEdit">
+         <div name="editorCL" class="currentlist" ng-show="readyToEdit">
             <ol>
                <li ng-repeat="item in current_list.todo_items" class="flexlist">
                   {{$index + 1 + "."}}
-                  <input type="text" name="currentitem" ng-model="item.item" value="{{item.item}}" ng-submit="editItem($index, item.item)"required />
+                  <input type="text" name="currentitem" ng-model="item.item" value="{{item.item}}" ng-submit="readyToEdit" required />
                </li>
             </ol>
          </div>
@@ -48,7 +51,10 @@
       <div class="listscontainer">
          <div class="flexlist">
             <h1>Current Lists</h1>
-            <p ng-click="readyToEditML = ! readyToEditML">edit</p>
+            <div class="flexlist">
+               <p ng-click="readyToEditML = ! readyToEditML" ng-class="{'underline':readyToEditML}">edit</p>
+               <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">save</p>
+            </div>
          </div>
          <div class="lists" ng-hide="readyToEditML">
             <ol>
@@ -60,11 +66,11 @@
                </li>
             </ol>
          </div>
-         <div class="lists" ng-show="readyToEditML">
+         <div name="editorML" class="lists" ng-show="readyToEditML">
             <ol>
                <li ng-repeat="master_list in master_lists" class="flexlist">
                   {{$index + 1 + "."}}
-                  <input type="text" name="list_title" ng-model="master_list.title" value="{{master_list.title}}" ng-submit="editItem($index, item.item)"required />
+                  <input type="text" name="list_title" ng-model="master_list.title" value="{{master_list.title}}" required />
                </li>
             </ol>
          </div>
