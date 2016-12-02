@@ -1,85 +1,85 @@
 <!doctype html>
 <html lang="en" ng-app="ToDo">
-<head>
-   <meta charset="UTF-8">
-   <title>TO DO</title>
-   <link rel="stylesheet" type="text/css" href="index.css">
-   <script src="../angular.min.js"></script>
-   <script src="app.js"></script>
-</head>
-<body>
-   <header class="header">
+  <head>
+    <meta charset="UTF-8">
+    <title>TO DO</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <header class="header">
       <img src="../images/BRO_logo.svg">
-   </header>
-   <div class="mainpic">
+    </header>
+    <div class="mainpic">
       <!-- <img src="images/coffeeshop.jpg"> -->
-   </div>
-   <div ng-controller="todoCtrl" id="container">
+    </div>
+    <div ng-controller="todoCtrl" id="container">
       <div class="currentcontainer">
-         <!-- needs to change with the name of list -->
-         <div class="flexlist">
-            <h1>{{current_list.title}}</h1>
-            <div class="flexlist">
-               <p ng-click="readyToEdit = ! readyToEdit" ng-class="{'underline':readyToEdit}">edit</p>
-               <p ng-click="readyToEdit = ! readyToEdit" style="padding-left:10px">save</p>
-            </div>
+        <!-- needs to change with the name of list -->
+        <div class="flexlist">
+          <h1>{{current_list.title}}</h1>
+          <div class="flexlist">
+            <p ng-click="readyToEdit = ! readyToEdit" ng-class="{'underline':readyToEdit}">edit</p>
+            <p ng-click="readyToEdit = ! readyToEdit" style="padding-left:10px">save</p>
+          </div>
          </div>
-         <div class="currentlist" ng-hide="readyToEdit">
-            <ol>
-               <li ng-repeat="item in current_list.todo_items" class="flexlist">
-                  <span ng-class="{'done':item.done}" ng-click="checked = ! checked">{{$index + 1 + "." + " " + item.item}}</span>
-                  <div id="verifiables">
-                     <input type="image" src="../images/icon_check.svg" ng-show="checked" ng-style="checked" ng-model="item.done" />
-                     <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteToDo($index)"/>
-                  </div>
-               </li>
-            </ol>
+        <div class="currentlist" ng-hide="readyToEdit">
+          <ol>
+            <li ng-repeat="item in current_list.todo_items" class="flexlist">
+              <span ng-class="{'done':item.done}" ng-click="checked = ! checked">{{$index + 1 + "." + " " + item.item}}</span>
+                <div id="verifiables">
+                  <input type="image" src="../images/icon_check.svg" ng-show="checked" ng-style="checked" ng-model="item.done" />
+                  <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteToDo($index)"/>
+                </div>
+            </li>
+          </ol>
          </div>
-         <div name="editorCL" class="currentlist" ng-show="readyToEdit">
-            <ol>
-               <li ng-repeat="item in current_list.todo_items" class="flexlist">
-                  {{$index + 1 + "."}}
-                  <input type="text" name="currentitem" ng-model="item.item" value="{{item.item}}" ng-submit="readyToEdit" required />
-               </li>
-            </ol>
-         </div>
-         <form name="frm" ng-submit="addItem()">
-            <input type="text" name="newtodo" ng-model="newtodo" placeholder="Click here to add a new item." ng-click="newtodo=null" required />
-            <input type="image" src="../images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid" class="plussed"/>
-         </form>
+        <div name="editorCL" class="currentlist" ng-show="readyToEdit">
+          <ol>
+            <li ng-repeat="item in current_list.todo_items" class="flexlist">
+              {{$index + 1 + "."}}
+              <input type="text" name="currentitem" ng-model="item.item" value="{{item.item}}" ng-submit="readyToEdit" required />
+            </li>
+          </ol>
+        </div>
+        <form name="frm" ng-submit="addItem()">
+          <input type="text" name="newtodo" ng-model="newtodo" placeholder="Click here to add a new item." ng-click="newtodo=null" required />
+          <input type="image" src="../images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid" class="plussed"/>
+        </form>
       </div>
       <div class="listscontainer">
-         <div class="flexlist">
-            <h1>Current Lists</h1>
+        <div class="flexlist">
+          <h1>Current Lists</h1>
             <div class="flexlist">
-               <p ng-click="readyToEditML = ! readyToEditML" ng-class="{'underline':readyToEditML}">edit</p>
-               <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">save</p>
+              <p ng-click="readyToEditML = ! readyToEditML" ng-class="{'underline':readyToEditML}">edit</p>
+              <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">save</p>
             </div>
-         </div>
-         <div class="lists" ng-hide="readyToEditML">
-            <ol>
-               <li ng-repeat="master_list in master_lists" class="flexlist">
-                  <span ng-click="selectList(master_list)"ng-class="{'done':master_list.done}">{{$index + 1 + "." + " " + master_list.title}}</span>
-                  <div class="verifiables">
-                     <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteList($index)" />
-                  </div>
-               </li>
-            </ol>
-         </div>
-         <div name="editorML" class="lists" ng-show="readyToEditML">
-            <ol>
-               <li ng-repeat="master_list in master_lists" class="flexlist">
-                  {{$index + 1 + "."}}
-                  <input type="text" name="list_title" ng-model="master_list.title" value="{{master_list.title}}" required />
-               </li>
-            </ol>
-         </div>
-         <form name="frm" ng-submit="addList()">
-            <input type="text" name="newList" ng-model="newlist" ng-click="newlist=null" required />
-            <input type="image" src="../images/icon_add.svg" name="newList" ng-disabled="frm.$invalid" class="plussed"/>
-         </form>
+        </div>
+        <div class="lists" ng-hide="readyToEditML">
+          <ol>
+            <li ng-repeat="master_list in master_lists" class="flexlist">
+              <span ng-click="selectList(master_list)"ng-class="{'done':master_list.done}">{{$index + 1 + "." + " " + master_list.title}}</span>
+              <div class="verifiables">
+                <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteList($index)" />
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div name="editorML" class="lists" ng-show="readyToEditML">
+          <ol>
+            <li ng-repeat="master_list in master_lists" class="flexlist">
+              {{$index + 1 + "."}}
+              <input type="text" name="list_title" ng-model="master_list.title" value="{{master_list.title}}" required />
+            </li>
+          </ol>
+        </div>
+        <form name="frm" ng-submit="addList()">
+          <input type="text" name="newList" ng-model="newlist" ng-click="newlist=null" required />
+          <input type="image" src="../images/icon_add.svg" name="newList" ng-disabled="frm.$invalid" class="plussed"/>
+        </form>
       </div>
-   </div>
+    </div>
 
-</body>
+  </body>
 </html>

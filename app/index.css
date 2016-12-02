@@ -1,79 +1,79 @@
 body{
-   font-family: sans-serif;
-   color: #808080;
-   margin:0;
+  font-family: sans-serif;
+  color: #808080;
+  margin:0;
 }
 input[type=text] {
-    border: none;
-    width: 90%;
+  border: none;
+  width: 90%;
 }
 #container{
-   display: flex;
-   justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .done{
-   text-decoration: line-through;
-   color: #ccc;
+  text-decoration: line-through;
+  color: #ccc;
 }
 .header{
-   display: flex;
-   justify-content: center;
-   background-color: #1eacaa;
-   padding: 1em 1em;
+  display: flex;
+  justify-content: center;
+  background-color: #1eacaa;
+  padding: 1em 1em;
 }
 .header img{
-   max-height: 25px;
-   max-width: 130px;
+  max-height: 25px;
+  max-width: 130px;
 }
 .mainpic{
-   background-image: url("../images/coffeeshop.jpg");
-   background-position: center;
-   height: 300px;
-   max-width: 100%;
-   background-size: cover;
-   border-top: solid #d6bfab;
-   border-bottom: solid #d6bfab;
+  background-image: url("../images/coffeeshop.jpg");
+  background-position: center;
+  height: 300px;
+  max-width: 100%;
+  background-size: cover;
+  border-top: solid #d6bfab;
+  border-bottom: solid #d6bfab;
 }
 .mainpic img{
-   max-width: 100%;
+  max-width: 100%;
 }
 .currentcontainer{
-   position: relative;
-   width: 400px;
+  position: relative;
+  width: 400px;
 }
 .currentlist{
-   border-top: solid #d6bfab;
-   border-bottom: solid #d6bfab;
+  border-top: solid #d6bfab;
+  border-bottom: solid #d6bfab;
 }
 .currentlist li{
-   margin-left: -11%;
-   padding-bottom: 10px;
+  margin-left: -11%;
+  padding-bottom: 10px;
 }
 .flexlist{
-   display: flex;
-   justify-content: space-between;
-   align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 .underline{
-   border-bottom: solid 1px #d6bfab;
+  border-bottom: solid 1px #d6bfab;
 }
 .listscontainer{
-   width: 400px;
+  width: 400px;
 }
 .lists{
-   border-top: solid 1px #d6bfab;
-   border-bottom: solid 1px #d6bfab;
+  border-top: solid 1px #d6bfab;
+  border-bottom: solid 1px #d6bfab;
 }
 .lists li{
-   margin-left: -11%;
-   padding-bottom: 5px;
-   font-size: smaller;
+  margin-left: -11%;
+  padding-bottom: 5px;
+  font-size: smaller;
 }
 .plussed{
-   padding-left: 12px;
+  padding-left: 12px;
 }
 @media only screen and (max-width: 750px) {
-   #container{
-      display: block;
-   }
+  #container{
+    display: block;
+}
 }
