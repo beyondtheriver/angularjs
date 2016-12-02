@@ -8,64 +8,84 @@
     <script src="app.js"></script>
   </head>
   <body>
+
     <header class="header">
       <img src="../images/BRO_logo.svg">
     </header>
+
     <div class="mainpic">
       <!-- <img src="images/coffeeshop.jpg"> -->
     </div>
+
     <div ng-controller="todoCtrl" id="container">
-      <div class="currentcontainer">
-        <!-- needs to change with the name of list -->
+      <!-- The Current List -->
+      <section class="currentcontainer">
+
         <div class="flexlist">
+          <!-- Title of Current List -->
           <h1>{{current_list.title}}</h1>
+          <!-- Save or Edit Current List -->
           <div class="flexlist">
             <p ng-click="readyToEdit = ! readyToEdit" ng-class="{'underline':readyToEdit}">edit</p>
             <p ng-click="readyToEdit = ! readyToEdit" style="padding-left:10px">save</p>
           </div>
-         </div>
+        </div>
+        <!-- Items of Current List (Display: None on Edit)-->
         <div class="currentlist" ng-hide="readyToEdit">
           <ol>
             <li ng-repeat="item in current_list.todo_items" class="flexlist">
               <span ng-class="{'done':item.done}" ng-click="checked = ! checked">{{$index + 1 + "." + " " + item.item}}</span>
-                <div id="verifiables">
-                  <input type="image" src="../images/icon_check.svg" ng-show="checked" ng-style="checked" ng-model="item.done" />
-                  <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteToDo($index)"/>
-                </div>
+              <!-- Checkmarks for Completion and X mark for Deletion -->
+              <div id="verifiables">
+                <input type="image" src="../images/icon_check.svg" ng-show="checked" ng-style="checked" ng-model="item.done" />
+                <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteToDo($index)"/>
+              </div>
             </li>
           </ol>
-         </div>
+        </div>
+        <!-- Current List Editor (comes up when Edit is clicked)-->
         <div name="editorCL" class="currentlist" ng-show="readyToEdit">
           <ol>
             <li ng-repeat="item in current_list.todo_items" class="flexlist">
+              <!-- Number of Item on Editable List -->
               {{$index + 1 + "."}}
+              <!-- Input for New Item on Editable List -->
               <input type="text" name="currentitem" ng-model="item.item" value="{{item.item}}" ng-submit="readyToEdit" required />
             </li>
           </ol>
         </div>
+        <!-- Form to Add Item on Current List -->
         <form name="frm" ng-submit="addItem()">
           <input type="text" name="newtodo" ng-model="newtodo" placeholder="Click here to add a new item." ng-click="newtodo=null" required />
+          <!-- Plus Mark to Submit New Item -->
           <input type="image" src="../images/icon_add.svg" name="newtodo" ng-disabled="frm.$invalid" class="plussed"/>
         </form>
-      </div>
-      <div class="listscontainer">
+
+      </section>
+
+      <section class="listscontainer">
+        <!-- Master List -->
         <div class="flexlist">
           <h1>Current Lists</h1>
+            <!-- Edit and Save Lists -->
             <div class="flexlist">
               <p ng-click="readyToEditML = ! readyToEditML" ng-class="{'underline':readyToEditML}">edit</p>
               <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">save</p>
             </div>
         </div>
+        <!-- Lists in Master List (Display: None on Edit) -->
         <div class="lists" ng-hide="readyToEditML">
           <ol>
             <li ng-repeat="master_list in master_lists" class="flexlist">
               <span ng-click="selectList(master_list)"ng-class="{'done':master_list.done}">{{$index + 1 + "." + " " + master_list.title}}</span>
+              <!-- X Mark for Deletable Lists -->
               <div class="verifiables">
                 <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteList($index)" />
               </div>
             </li>
           </ol>
         </div>
+        <!-- Master List Editor (comes up when Edit is clicked)-->
         <div name="editorML" class="lists" ng-show="readyToEditML">
           <ol>
             <li ng-repeat="master_list in master_lists" class="flexlist">
@@ -74,11 +94,14 @@
             </li>
           </ol>
         </div>
+        <!-- Form to Add New List on Master List -->
         <form name="frm" ng-submit="addList()">
           <input type="text" name="newList" ng-model="newlist" ng-click="newlist=null" required />
           <input type="image" src="../images/icon_add.svg" name="newList" ng-disabled="frm.$invalid" class="plussed"/>
         </form>
-      </div>
+
+      </section>
+
     </div>
 
   </body>
