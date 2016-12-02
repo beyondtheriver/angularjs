@@ -1,7 +1,11 @@
 body{
   font-family: sans-serif;
+  font-weight: 100;
   color: #808080;
   margin:0;
+}
+h1{
+font-weight: 100;
 }
 input[type=text] {
   border: none;
@@ -33,9 +37,21 @@ input[type=text] {
   background-size: cover;
   border-top: solid #d6bfab;
   border-bottom: solid #d6bfab;
+  position: relative;
+  z-index: 1;
 }
 .mainpic img{
   max-width: 100%;
+}
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  color: black;
 }
 .currentcontainer{
   position: relative;
@@ -71,6 +87,13 @@ input[type=text] {
 }
 .plussed{
   padding-left: 12px;
+}
+#footer{
+  position: absolute;
+  bottom: 0px;
+  background-color: #1eacaa;
+  width: 100%;
+  height: .4em;
 }
 @media only screen and (max-width: 750px) {
   #container{
