@@ -64,6 +64,10 @@ input[type=text] {
 .currentlist li{
   margin-left: -11%;
   padding-bottom: 10px;
+  font-style: italic;
+}
+.currentlist span{
+  cursor: pointer;
 }
 .flexlist{
   display: flex;
@@ -84,6 +88,9 @@ input[type=text] {
   margin-left: -11%;
   padding-bottom: 5px;
   font-size: smaller;
+}
+.lists span{
+  cursor: pointer;
 }
 .plussed{
   padding-left: 12px;
