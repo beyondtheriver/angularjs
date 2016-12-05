@@ -28,7 +28,11 @@ angular.module('ToDo', []).
       $scope.current_list = master_list;
     }
     $scope.deleteList = function(index){
+      if ($scope.current_list == $scope.master_lists[index]){
+        $scope.current_list = '';
+      };
       $scope.master_lists.splice(index, 1);
+
     }
     $scope.addItem = function(){
       $scope.current_list.todo_items.push({'item':$scope.newtodo,'done':false});
