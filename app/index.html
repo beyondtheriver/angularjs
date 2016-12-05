@@ -72,7 +72,7 @@
             <!-- Edit and Save Lists -->
             <div class="flexlist">
               <p ng-click="readyToEditML = ! readyToEditML" ng-class="{'underline':readyToEditML}">edit</p>
-              <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">add list</p>
+              <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">+ add list</p>
             </div>
         </div>
         <!-- Lists in Master List (Display: None on Edit) -->
@@ -96,7 +96,7 @@
           </ol>
         </div>
         <!-- Form to Add New List on Master List -->
-        <form name="frm" ng-submit="addList()">
+        <form name="frm2" ng-submit="addList()">
           <input type="text" name="newList" ng-model="newlist" ng-click="newlist=null" required />
           <input type="image" src="../images/icon_add.svg" name="newList" ng-disabled="frm.$invalid" class="plussed"/>
         </form>
