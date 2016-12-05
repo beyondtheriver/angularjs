@@ -5,15 +5,27 @@ body{
   margin:0;
 }
 h1{
-font-weight: 100;
+  font-size: medium;
+  font-weight: 100;
+}
+p{
+  font-size: small;
+  font-weight: 100;
 }
 input[type=text] {
   border: none;
   width: 90%;
 }
+ol{
+  list-style-type: decimal;
+}
+form{
+  display: flex;
+}
 #container{
   display: flex;
   justify-content: space-around;
+  margin-top: 6%;
 }
 .done{
   text-decoration: line-through;
@@ -55,15 +67,17 @@ input[type=text] {
 }
 .currentcontainer{
   position: relative;
-  width: 400px;
+  width:  39%;
+  margin-left: 14%;
 }
 .currentlist{
   border-top: solid #d6bfab;
   border-bottom: solid #d6bfab;
 }
 .currentlist li{
-  margin-left: -11%;
-  padding-bottom: 10px;
+  margin-left: -9%;
+  padding-top: 4%;
+  padding-bottom: 4%;
   font-style: italic;
 }
 .currentlist span{
@@ -78,16 +92,17 @@ input[type=text] {
   border-bottom: solid 1px #d6bfab;
 }
 .listscontainer{
-  width: 400px;
+  width: 20%;
+  margin-right: 10%
 }
 .lists{
   border-top: solid 1px #d6bfab;
   border-bottom: solid 1px #d6bfab;
 }
 .lists li{
-  margin-left: -11%;
-  padding-bottom: 5px;
-  font-size: smaller;
+  margin-left: -18%;
+  padding-bottom: 5%;
+  font-size: .7em;
 }
 .lists span{
   cursor: pointer;
@@ -96,11 +111,11 @@ input[type=text] {
   padding-left: 12px;
 }
 #footer{
-  position: absolute;
   bottom: 0px;
   background-color: #1eacaa;
   width: 100%;
   height: .4em;
+  margin-top: 2%;
 }
 @media only screen and (max-width: 750px) {
   #container{

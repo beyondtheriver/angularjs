@@ -33,10 +33,10 @@
           </div>
         </div>
         <!-- Items of Current List (Display: None on Edit)-->
-        <div class="currentlist" ng-hide="readyToEdit">
+        <div class="currentlist" ng-hide="readyToEdit" >
           <ol>
             <li ng-repeat="item in current_list.todo_items" class="flexlist">
-              <span ng-class="{'done':item.done}" ng-click="checked = ! checked">{{$index + 1 + "." + " " + item.item}}</span>
+              <span ng-class="{'done':item.done}" ng-click="checked = ! checked">{{$index + 1 + ". " + item.item}}</span>
               <!-- Checkmarks for Completion and X mark for Deletion -->
               <div id="verifiables">
                 <input type="image" src="../images/icon_check.svg" ng-show="checked" ng-style="checked" ng-model="item.done" />
@@ -72,14 +72,14 @@
             <!-- Edit and Save Lists -->
             <div class="flexlist">
               <p ng-click="readyToEditML = ! readyToEditML" ng-class="{'underline':readyToEditML}">edit</p>
-              <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">save</p>
+              <p ng-click="readyToEditML = ! readyToEditML" style="padding-left:10px">add list</p>
             </div>
         </div>
         <!-- Lists in Master List (Display: None on Edit) -->
         <div class="lists" ng-hide="readyToEditML">
           <ol>
             <li ng-repeat="master_list in master_lists" class="flexlist">
-              <span ng-click="selectList(master_list)"ng-class="{'done':master_list.done}">{{$index + 1 + "." + " " + master_list.title}}</span>
+              <span ng-click="selectList(master_list)"ng-class="{'done':master_list.done}">{{master_list.title}}</span>
               <!-- X Mark for Deletable Lists -->
               <div class="verifiables">
                 <input type="image" src="../images/icon_close.svg" name="closeitem" data-ng-click="deleteList($index)" />
@@ -91,7 +91,6 @@
         <div name="editorML" class="lists" ng-show="readyToEditML">
           <ol>
             <li ng-repeat="master_list in master_lists" class="flexlist">
-              {{$index + 1 + "."}}
               <input type="text" name="list_title" ng-model="master_list.title" value="{{master_list.title}}" required />
             </li>
           </ol>
