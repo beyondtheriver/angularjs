@@ -11,6 +11,7 @@ h1{
 p{
   font-size: small;
   font-weight: 100;
+  cursor: pointer;
 }
 input[type=text] {
   border: none;
@@ -21,6 +22,7 @@ ol{
 }
 form{
   display: flex;
+  margin-top: 2%;
 }
 #container{
   display: flex;
@@ -90,6 +92,7 @@ form{
 }
 .underline{
   border-bottom: solid 1px #d6bfab;
+  cursor: auto;
 }
 .listscontainer{
   width: 20%;
@@ -108,7 +111,7 @@ form{
   cursor: pointer;
 }
 .plussed{
-  padding-left: 12px;
+  padding-left: 5%;
 }
 #footer{
   bottom: 0px;
@@ -120,5 +123,16 @@ form{
 @media only screen and (max-width: 750px) {
   #container{
     display: block;
-}
+  }
+  .listscontainer{
+    width: 29%;
+    margin-top: 5%;
+    margin-left: 14%;
+  }
+  .lists li{
+    margin-left: -23%;
+  }
+  .currentlist li{
+    margin-left: -14%;
+  }
 }
